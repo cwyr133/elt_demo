@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: stg_payments
+    description: "Tiny demo model"
+    columns:
+      - name: payment_id
+        tests:
+          - not_null
+          - unique

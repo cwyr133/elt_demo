@@ -1,0 +1,583 @@
+[0m08:05:25.781426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742c935bf5c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742c94995e20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742c9361eb70>]}
+
+
+============================== 08:05:25.788219 | 1222684e-8f6f-4c27-84cd-c3af6781f6cf ==============================
+[0m08:05:25.788219 [info ] [MainThread]: Running with dbt=1.10.11
+[0m08:05:25.789403 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'use_experimental_parser': 'False', 'log_path': '/home/callam/elt_demo/elt_demo/logs', 'version_check': 'True', 'static_parser': 'True', 'indirect_selection': 'eager', 'introspect': 'True', 'printer_width': '80', 'write_json': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/home/callam/.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_colors': 'True', 'empty': 'None', 'debug': 'False', 'log_cache_events': 'False', 'no_print': 'None', 'invocation_command': 'dbt debug', 'log_format': 'default', 'target_path': 'None'}
+[0m08:05:25.814326 [info ] [MainThread]: dbt version: 1.10.11
+[0m08:05:25.814925 [info ] [MainThread]: python version: 3.12.3
+[0m08:05:25.815261 [info ] [MainThread]: python path: /home/callam/elt_demo/venv/bin/python3
+[0m08:05:25.815672 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+[0m08:05:26.352236 [info ] [MainThread]: Using profiles dir at /home/callam/.dbt
+[0m08:05:26.352766 [info ] [MainThread]: Using profiles.yml file at /home/callam/.dbt/profiles.yml
+[0m08:05:26.353203 [info ] [MainThread]: Using dbt_project.yml file at /home/callam/elt_demo/elt_demo/dbt_project.yml
+[0m08:05:26.354153 [info ] [MainThread]: adapter type: snowflake
+[0m08:05:26.354639 [info ] [MainThread]: adapter version: 1.10.2
+[0m08:05:26.462959 [info ] [MainThread]: Configuration:
+[0m08:05:26.463451 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m08:05:26.463895 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m08:05:26.464256 [info ] [MainThread]: Required dependencies:
+[0m08:05:26.464624 [debug] [MainThread]: Executing "git --help"
+[0m08:05:26.469693 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m08:05:26.470175 [debug] [MainThread]: STDERR: "b''"
+[0m08:05:26.470435 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m08:05:26.470950 [info ] [MainThread]: Connection:
+[0m08:05:26.472002 [info ] [MainThread]:   account: JDYJFAL-GZ28830
+[0m08:05:26.472432 [info ] [MainThread]:   user: CWYR
+[0m08:05:26.472867 [info ] [MainThread]:   database: DB_DEMO
+[0m08:05:26.473239 [info ] [MainThread]:   warehouse: WH_XSMALL_DEMO
+[0m08:05:26.473649 [info ] [MainThread]:   role: ROLE_DEMO_DEV
+[0m08:05:26.474111 [info ] [MainThread]:   schema: SCHEMA_ANALYTICS
+[0m08:05:26.474544 [info ] [MainThread]:   authenticator: snowflake
+[0m08:05:26.474934 [info ] [MainThread]:   oauth_client_id: None
+[0m08:05:26.475248 [info ] [MainThread]:   query_tag: None
+[0m08:05:26.475659 [info ] [MainThread]:   client_session_keep_alive: False
+[0m08:05:26.475973 [info ] [MainThread]:   host: None
+[0m08:05:26.476284 [info ] [MainThread]:   port: None
+[0m08:05:26.476677 [info ] [MainThread]:   proxy_host: None
+[0m08:05:26.476990 [info ] [MainThread]:   proxy_port: None
+[0m08:05:26.477300 [info ] [MainThread]:   protocol: None
+[0m08:05:26.477617 [info ] [MainThread]:   connect_retries: 1
+[0m08:05:26.477925 [info ] [MainThread]:   connect_timeout: None
+[0m08:05:26.478235 [info ] [MainThread]:   retry_on_database_errors: False
+[0m08:05:26.478572 [info ] [MainThread]:   retry_all: False
+[0m08:05:26.478886 [info ] [MainThread]:   insecure_mode: False
+[0m08:05:26.479193 [info ] [MainThread]:   reuse_connections: True
+[0m08:05:26.479546 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m08:05:26.480014 [info ] [MainThread]: Registered adapter: snowflake=1.10.2
+[0m08:05:26.588522 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m08:05:26.623780 [debug] [MainThread]: Using snowflake connection "debug"
+[0m08:05:26.624171 [debug] [MainThread]: On debug: select 1 as id
+[0m08:05:26.624470 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:05:30.308890 [debug] [MainThread]: SQL status: SUCCESS 1 in 3.684 seconds
+[0m08:05:30.311777 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m08:05:30.313113 [info ] [MainThread]: [32mAll checks passed![0m
+[0m08:05:30.322917 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 4.6049867, "process_in_blocks": "111232", "process_kernel_time": 0.491464, "process_mem_max_rss": "143620", "process_out_blocks": "32", "process_user_time": 2.149657}
+[0m08:05:30.326202 [debug] [MainThread]: Command `dbt debug` succeeded at 08:05:30.325309 after 4.61 seconds
+[0m08:05:30.327622 [debug] [MainThread]: Connection 'debug' was left open.
+[0m08:05:30.328546 [debug] [MainThread]: On debug: Close
+[0m08:05:30.432087 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742c918b0a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742c8983ec60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742c913fb080>]}
+[0m08:05:30.432911 [debug] [MainThread]: Flushing usage events
+[0m08:05:31.672422 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:11:41.789514 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b14424c8c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b143fb3500>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b1454c6a20>]}
+
+
+============================== 08:11:41.795001 | 66455b75-ac15-4c46-be06-0af310d96f81 ==============================
+[0m08:11:41.795001 [info ] [MainThread]: Running with dbt=1.10.11
+[0m08:11:41.795620 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'printer_width': '80', 'profiles_dir': '/home/callam/.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'use_colors': 'True', 'log_path': '/home/callam/elt_demo/elt_demo/logs', 'indirect_selection': 'eager', 'quiet': 'False', 'warn_error': 'None', 'empty': 'False', 'target_path': 'None', 'log_cache_events': 'False', 'static_parser': 'True', 'partial_parse': 'True', 'no_print': 'None', 'write_json': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'invocation_command': 'dbt build'}
+[0m08:11:42.494573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b141e3f080>]}
+[0m08:11:42.556025 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b141e3f830>]}
+[0m08:11:42.557244 [info ] [MainThread]: Registered adapter: snowflake=1.10.2
+[0m08:11:42.665808 [debug] [MainThread]: checksum: 5335e1629744fab92fa7809c625edbb36f0d7063a879d6215c971798f27e66f9, vars: {}, profile: , target: , version: 1.10.11
+[0m08:11:42.666446 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m08:11:42.666855 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b141a6fc50>]}
+[0m08:11:43.883643 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b141cc56d0>]}
+[0m08:11:43.950173 [debug] [MainThread]: Wrote artifact WritableManifest to /home/callam/elt_demo/elt_demo/target/manifest.json
+[0m08:11:43.952656 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/callam/elt_demo/elt_demo/target/semantic_manifest.json
+[0m08:11:44.008789 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b1405d6960>]}
+[0m08:11:44.009228 [info ] [MainThread]: Found 2 models, 4 data tests, 479 macros
+[0m08:11:44.012427 [info ] [MainThread]: 
+[0m08:11:44.012935 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m08:11:44.013299 [info ] [MainThread]: 
+[0m08:11:44.013949 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m08:11:44.018450 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DB_DEMO'
+[0m08:11:44.084456 [debug] [ThreadPool]: Using snowflake connection "list_DB_DEMO"
+[0m08:11:44.084866 [debug] [ThreadPool]: On list_DB_DEMO: show terse schemas in database DB_DEMO
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "connection_name": "list_DB_DEMO"} */
+[0m08:11:44.085210 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:11:48.371320 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 4.286 seconds
+[0m08:11:48.376090 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DB_DEMO, now list_DB_DEMO_SCHEMA_ANALYTICS)
+[0m08:11:48.387550 [debug] [ThreadPool]: Using snowflake connection "list_DB_DEMO_SCHEMA_ANALYTICS"
+[0m08:11:48.387923 [debug] [ThreadPool]: On list_DB_DEMO_SCHEMA_ANALYTICS: show objects in DB_DEMO.SCHEMA_ANALYTICS
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "connection_name": "list_DB_DEMO_SCHEMA_ANALYTICS"} */;
+[0m08:11:48.600693 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.212 seconds
+[0m08:11:48.609483 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b141632ba0>]}
+[0m08:11:48.625572 [debug] [Thread-1 (]: Began running node model.elt_demo.my_first_dbt_model
+[0m08:11:48.626861 [info ] [Thread-1 (]: 1 of 6 START sql table model SCHEMA_ANALYTICS.my_first_dbt_model ............... [RUN]
+[0m08:11:48.627857 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_DB_DEMO_SCHEMA_ANALYTICS, now model.elt_demo.my_first_dbt_model)
+[0m08:11:48.628695 [debug] [Thread-1 (]: Began compiling node model.elt_demo.my_first_dbt_model
+[0m08:11:48.639215 [debug] [Thread-1 (]: Writing injected SQL for node "model.elt_demo.my_first_dbt_model"
+[0m08:11:48.641609 [debug] [Thread-1 (]: Began executing node model.elt_demo.my_first_dbt_model
+[0m08:11:48.671431 [debug] [Thread-1 (]: Writing runtime sql for node "model.elt_demo.my_first_dbt_model"
+[0m08:11:48.673669 [debug] [Thread-1 (]: Using snowflake connection "model.elt_demo.my_first_dbt_model"
+[0m08:11:48.674071 [debug] [Thread-1 (]: On model.elt_demo.my_first_dbt_model: create or replace transient table DB_DEMO.SCHEMA_ANALYTICS.my_first_dbt_model
+    
+    
+    
+    as (/*
+    Welcome to your first dbt model!
+    Did you know that you can also configure models directly within SQL files?
+    This will override configurations stated in dbt_project.yml
+
+    Try changing "table" to "view" below
+*/
+
+
+
+with source_data as (
+
+    select 1 as id
+    union all
+    select null as id
+
+)
+
+select *
+from source_data
+
+/*
+    Uncomment the line below to remove records with null `id` values
+*/
+
+-- where id is not null
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "model.elt_demo.my_first_dbt_model"} */;
+[0m08:11:50.257676 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.583 seconds
+[0m08:11:50.290616 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66455b75-ac15-4c46-be06-0af310d96f81', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b1459a90a0>]}
+[0m08:11:50.291355 [info ] [Thread-1 (]: 1 of 6 OK created sql table model SCHEMA_ANALYTICS.my_first_dbt_model .......... [[32mSUCCESS 1[0m in 1.66s]
+[0m08:11:50.292010 [debug] [Thread-1 (]: Finished running node model.elt_demo.my_first_dbt_model
+[0m08:11:50.293646 [debug] [Thread-3 (]: Began running node test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710
+[0m08:11:50.295054 [debug] [Thread-4 (]: Began running node test.elt_demo.unique_my_first_dbt_model_id.16e066b321
+[0m08:11:50.294518 [info ] [Thread-3 (]: 2 of 6 START test not_null_my_first_dbt_model_id ............................... [RUN]
+[0m08:11:50.295881 [info ] [Thread-4 (]: 3 of 6 START test unique_my_first_dbt_model_id ................................. [RUN]
+[0m08:11:50.297031 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710'
+[0m08:11:50.297671 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.elt_demo.unique_my_first_dbt_model_id.16e066b321'
+[0m08:11:50.298170 [debug] [Thread-3 (]: Began compiling node test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710
+[0m08:11:50.298656 [debug] [Thread-4 (]: Began compiling node test.elt_demo.unique_my_first_dbt_model_id.16e066b321
+[0m08:11:50.309535 [debug] [Thread-3 (]: Writing injected SQL for node "test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710"
+[0m08:11:50.317901 [debug] [Thread-4 (]: Writing injected SQL for node "test.elt_demo.unique_my_first_dbt_model_id.16e066b321"
+[0m08:11:50.319229 [debug] [Thread-3 (]: Began executing node test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710
+[0m08:11:50.338280 [debug] [Thread-3 (]: Writing runtime sql for node "test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710"
+[0m08:11:50.338819 [debug] [Thread-4 (]: Began executing node test.elt_demo.unique_my_first_dbt_model_id.16e066b321
+[0m08:11:50.342816 [debug] [Thread-4 (]: Writing runtime sql for node "test.elt_demo.unique_my_first_dbt_model_id.16e066b321"
+[0m08:11:50.343886 [debug] [Thread-3 (]: Using snowflake connection "test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710"
+[0m08:11:50.344524 [debug] [Thread-3 (]: On test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select id
+from DB_DEMO.SCHEMA_ANALYTICS.my_first_dbt_model
+where id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710"} */
+[0m08:11:50.345151 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m08:11:50.384725 [debug] [Thread-4 (]: Using snowflake connection "test.elt_demo.unique_my_first_dbt_model_id.16e066b321"
+[0m08:11:50.385341 [debug] [Thread-4 (]: On test.elt_demo.unique_my_first_dbt_model_id.16e066b321: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    id as unique_field,
+    count(*) as n_records
+
+from DB_DEMO.SCHEMA_ANALYTICS.my_first_dbt_model
+where id is not null
+group by id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "test.elt_demo.unique_my_first_dbt_model_id.16e066b321"} */
+[0m08:11:50.385944 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m08:11:53.353010 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 3.007 seconds
+[0m08:11:53.357441 [error] [Thread-3 (]: 2 of 6 FAIL 1 not_null_my_first_dbt_model_id ................................... [[31mFAIL 1[0m in 3.06s]
+[0m08:11:53.358267 [debug] [Thread-3 (]: Finished running node test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710
+[0m08:11:53.358994 [debug] [Thread-7 (]: Marking all children of 'test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710' to be skipped because of status 'fail'.  Reason: Got 1 result, configured to fail if != 0.
+[0m08:11:54.093989 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 3.708 seconds
+[0m08:11:54.096566 [info ] [Thread-4 (]: 3 of 6 PASS unique_my_first_dbt_model_id ....................................... [[32mPASS[0m in 3.80s]
+[0m08:11:54.097420 [debug] [Thread-4 (]: Finished running node test.elt_demo.unique_my_first_dbt_model_id.16e066b321
+[0m08:11:54.098663 [debug] [Thread-1 (]: Began running node model.elt_demo.my_second_dbt_model
+[0m08:11:54.099523 [info ] [Thread-1 (]: 4 of 6 SKIP relation SCHEMA_ANALYTICS.my_second_dbt_model ...................... [[33mSKIP[0m]
+[0m08:11:54.101295 [debug] [Thread-1 (]: Finished running node model.elt_demo.my_second_dbt_model
+[0m08:11:54.101915 [debug] [Thread-7 (]: Marking all children of 'model.elt_demo.my_second_dbt_model' to be skipped because of status 'skipped'. 
+[0m08:11:54.102903 [debug] [Thread-3 (]: Began running node test.elt_demo.not_null_my_second_dbt_model_id.151b76d778
+[0m08:11:54.103597 [info ] [Thread-3 (]: 5 of 6 SKIP test not_null_my_second_dbt_model_id ............................... [[33mSKIP[0m]
+[0m08:11:54.104431 [debug] [Thread-4 (]: Began running node test.elt_demo.unique_my_second_dbt_model_id.57a0f8c493
+[0m08:11:54.105064 [debug] [Thread-3 (]: Finished running node test.elt_demo.not_null_my_second_dbt_model_id.151b76d778
+[0m08:11:54.105610 [info ] [Thread-4 (]: 6 of 6 SKIP test unique_my_second_dbt_model_id ................................. [[33mSKIP[0m]
+[0m08:11:54.106383 [debug] [Thread-7 (]: Marking all children of 'test.elt_demo.not_null_my_second_dbt_model_id.151b76d778' to be skipped because of status 'skipped'. 
+[0m08:11:54.106947 [debug] [Thread-4 (]: Finished running node test.elt_demo.unique_my_second_dbt_model_id.57a0f8c493
+[0m08:11:54.107907 [debug] [Thread-7 (]: Marking all children of 'test.elt_demo.unique_my_second_dbt_model_id.57a0f8c493' to be skipped because of status 'skipped'. 
+[0m08:11:54.110464 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:11:54.111087 [debug] [MainThread]: Connection 'model.elt_demo.my_first_dbt_model' was left open.
+[0m08:11:54.111867 [debug] [MainThread]: On model.elt_demo.my_first_dbt_model: Close
+[0m08:11:54.176656 [debug] [MainThread]: Connection 'test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710' was left open.
+[0m08:11:54.177404 [debug] [MainThread]: On test.elt_demo.not_null_my_first_dbt_model_id.5fb22c2710: Close
+[0m08:11:54.258684 [debug] [MainThread]: Connection 'test.elt_demo.unique_my_first_dbt_model_id.16e066b321' was left open.
+[0m08:11:54.259126 [debug] [MainThread]: On test.elt_demo.unique_my_first_dbt_model_id.16e066b321: Close
+[0m08:11:54.312623 [info ] [MainThread]: 
+[0m08:11:54.313174 [info ] [MainThread]: Finished running 1 table model, 4 data tests, 1 view model in 0 hours 0 minutes and 10.30 seconds (10.30s).
+[0m08:11:54.314655 [debug] [MainThread]: Command end result
+[0m08:11:54.337256 [debug] [MainThread]: Wrote artifact WritableManifest to /home/callam/elt_demo/elt_demo/target/manifest.json
+[0m08:11:54.341689 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/callam/elt_demo/elt_demo/target/semantic_manifest.json
+[0m08:11:54.348916 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/callam/elt_demo/elt_demo/target/run_results.json
+[0m08:11:54.349251 [info ] [MainThread]: 
+[0m08:11:54.349766 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m08:11:54.350337 [info ] [MainThread]: 
+[0m08:11:54.351011 [error] [MainThread]: [31mFailure in test not_null_my_first_dbt_model_id (models/example/schema.yml)[0m
+[0m08:11:54.351705 [error] [MainThread]:   Got 1 result, configured to fail if != 0
+[0m08:11:54.352258 [info ] [MainThread]: 
+[0m08:11:54.352816 [info ] [MainThread]:   compiled code at target/compiled/elt_demo/models/example/schema.yml/not_null_my_first_dbt_model_id.sql
+[0m08:11:54.353381 [info ] [MainThread]: 
+[0m08:11:54.353893 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=1 SKIP=3 NO-OP=0 TOTAL=6
+[0m08:11:54.356110 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 12.625417, "process_in_blocks": "130008", "process_kernel_time": 1.132374, "process_mem_max_rss": "161992", "process_out_blocks": "5464", "process_user_time": 4.000792}
+[0m08:11:54.356582 [debug] [MainThread]: Command `dbt build` failed at 08:11:54.356482 after 12.63 seconds
+[0m08:11:54.356931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b14773b320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b1431f0950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b141843c50>]}
+[0m08:11:54.357275 [debug] [MainThread]: Flushing usage events
+[0m08:11:55.460806 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:21:34.807981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a9deed80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10ab8b1460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a971ddf0>]}
+
+
+============================== 08:21:34.814869 | 38bee8af-5652-4643-8fbc-ff47022a1704 ==============================
+[0m08:21:34.814869 [info ] [MainThread]: Running with dbt=1.10.11
+[0m08:21:34.815564 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'quiet': 'False', 'log_path': '/home/callam/elt_demo/elt_demo/logs', 'profiles_dir': '/home/callam/.dbt', 'invocation_command': 'dbt build', 'use_experimental_parser': 'False', 'static_parser': 'True', 'warn_error': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'False', 'no_print': 'None', 'introspect': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'debug': 'False', 'target_path': 'None', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'log_format': 'default', 'version_check': 'True'}
+[0m08:21:35.490653 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '38bee8af-5652-4643-8fbc-ff47022a1704', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a77a8b60>]}
+[0m08:21:35.551658 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '38bee8af-5652-4643-8fbc-ff47022a1704', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a7a36e70>]}
+[0m08:21:35.552965 [info ] [MainThread]: Registered adapter: snowflake=1.10.2
+[0m08:21:35.654631 [debug] [MainThread]: checksum: 5335e1629744fab92fa7809c625edbb36f0d7063a879d6215c971798f27e66f9, vars: {}, profile: , target: , version: 1.10.11
+[0m08:21:35.870030 [debug] [MainThread]: Partial parsing enabled: 3 files deleted, 2 files added, 0 files changed.
+[0m08:21:35.870820 [debug] [MainThread]: Partial parsing: added file: elt_demo://models/staging/stg_payments.sql
+[0m08:21:35.871268 [debug] [MainThread]: Partial parsing: added file: elt_demo://models/staging/schema.yml
+[0m08:21:35.871641 [debug] [MainThread]: Partial parsing: deleted file: elt_demo://models/example/my_first_dbt_model.sql
+[0m08:21:35.871905 [debug] [MainThread]: Partial parsing: deleted file: elt_demo://models/example/my_second_dbt_model.sql
+[0m08:21:36.248147 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.elt_demo.example
+[0m08:21:36.253080 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '38bee8af-5652-4643-8fbc-ff47022a1704', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a615d310>]}
+[0m08:21:36.314289 [debug] [MainThread]: Wrote artifact WritableManifest to /home/callam/elt_demo/elt_demo/target/manifest.json
+[0m08:21:36.316387 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/callam/elt_demo/elt_demo/target/semantic_manifest.json
+[0m08:21:36.368401 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '38bee8af-5652-4643-8fbc-ff47022a1704', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a5f3b020>]}
+[0m08:21:36.368867 [info ] [MainThread]: Found 1 model, 2 data tests, 479 macros
+[0m08:21:36.371043 [info ] [MainThread]: 
+[0m08:21:36.371740 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m08:21:36.372079 [info ] [MainThread]: 
+[0m08:21:36.372750 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m08:21:36.373717 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DB_DEMO'
+[0m08:21:36.423487 [debug] [ThreadPool]: Using snowflake connection "list_DB_DEMO"
+[0m08:21:36.423858 [debug] [ThreadPool]: On list_DB_DEMO: show terse schemas in database DB_DEMO
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "connection_name": "list_DB_DEMO"} */
+[0m08:21:36.424167 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:21:39.477316 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 3.053 seconds
+[0m08:21:39.480204 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DB_DEMO, now list_DB_DEMO_SCHEMA_ANALYTICS)
+[0m08:21:39.493767 [debug] [ThreadPool]: Using snowflake connection "list_DB_DEMO_SCHEMA_ANALYTICS"
+[0m08:21:39.494217 [debug] [ThreadPool]: On list_DB_DEMO_SCHEMA_ANALYTICS: show objects in DB_DEMO.SCHEMA_ANALYTICS
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "connection_name": "list_DB_DEMO_SCHEMA_ANALYTICS"} */;
+[0m08:21:39.690716 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.196 seconds
+[0m08:21:39.698896 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '38bee8af-5652-4643-8fbc-ff47022a1704', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a77a9fd0>]}
+[0m08:21:39.718805 [debug] [Thread-1 (]: Began running node model.elt_demo.stg_payments
+[0m08:21:39.719635 [info ] [Thread-1 (]: 1 of 3 START sql view model SCHEMA_ANALYTICS.stg_payments ...................... [RUN]
+[0m08:21:39.720334 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_DB_DEMO_SCHEMA_ANALYTICS, now model.elt_demo.stg_payments)
+[0m08:21:39.720804 [debug] [Thread-1 (]: Began compiling node model.elt_demo.stg_payments
+[0m08:21:39.727814 [debug] [Thread-1 (]: Writing injected SQL for node "model.elt_demo.stg_payments"
+[0m08:21:39.729323 [debug] [Thread-1 (]: Began executing node model.elt_demo.stg_payments
+[0m08:21:39.760719 [debug] [Thread-1 (]: Writing runtime sql for node "model.elt_demo.stg_payments"
+[0m08:21:39.762387 [debug] [Thread-1 (]: Using snowflake connection "model.elt_demo.stg_payments"
+[0m08:21:39.762750 [debug] [Thread-1 (]: On model.elt_demo.stg_payments: create or replace   view DB_DEMO.SCHEMA_ANALYTICS.stg_payments
+  
+  
+  
+  
+  as (
+    select 1 as payment_id,
+       1000 as amount,
+       current_date as paid_on
+  )
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "model.elt_demo.stg_payments"} */;
+[0m08:21:40.087622 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.324 seconds
+[0m08:21:40.110580 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '38bee8af-5652-4643-8fbc-ff47022a1704', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10ab65d010>]}
+[0m08:21:40.111219 [info ] [Thread-1 (]: 1 of 3 OK created sql view model SCHEMA_ANALYTICS.stg_payments ................. [[32mSUCCESS 1[0m in 0.39s]
+[0m08:21:40.111974 [debug] [Thread-1 (]: Finished running node model.elt_demo.stg_payments
+[0m08:21:40.113142 [debug] [Thread-3 (]: Began running node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:21:40.114320 [debug] [Thread-4 (]: Began running node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:21:40.115233 [info ] [Thread-3 (]: 2 of 3 START test not_null_stg_payments_payment_id ............................. [RUN]
+[0m08:21:40.116339 [info ] [Thread-4 (]: 3 of 3 START test unique_stg_payments_payment_id ............................... [RUN]
+[0m08:21:40.117655 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.elt_demo.not_null_stg_payments_payment_id.c19cc50075'
+[0m08:21:40.118210 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.elt_demo.unique_stg_payments_payment_id.3744510712'
+[0m08:21:40.118674 [debug] [Thread-3 (]: Began compiling node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:21:40.119114 [debug] [Thread-4 (]: Began compiling node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:21:40.137520 [debug] [Thread-4 (]: Writing injected SQL for node "test.elt_demo.unique_stg_payments_payment_id.3744510712"
+[0m08:21:40.138619 [debug] [Thread-3 (]: Writing injected SQL for node "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"
+[0m08:21:40.140644 [debug] [Thread-4 (]: Began executing node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:21:40.151591 [debug] [Thread-3 (]: Began executing node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:21:40.165250 [debug] [Thread-4 (]: Writing runtime sql for node "test.elt_demo.unique_stg_payments_payment_id.3744510712"
+[0m08:21:40.166222 [debug] [Thread-3 (]: Writing runtime sql for node "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"
+[0m08:21:40.168399 [debug] [Thread-3 (]: Using snowflake connection "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"
+[0m08:21:40.168786 [debug] [Thread-3 (]: On test.elt_demo.not_null_stg_payments_payment_id.c19cc50075: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select payment_id
+from DB_DEMO.SCHEMA_ANALYTICS.stg_payments
+where payment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"} */
+[0m08:21:40.169119 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m08:21:40.202306 [debug] [Thread-4 (]: Using snowflake connection "test.elt_demo.unique_stg_payments_payment_id.3744510712"
+[0m08:21:40.202717 [debug] [Thread-4 (]: On test.elt_demo.unique_stg_payments_payment_id.3744510712: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    payment_id as unique_field,
+    count(*) as n_records
+
+from DB_DEMO.SCHEMA_ANALYTICS.stg_payments
+where payment_id is not null
+group by payment_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "test.elt_demo.unique_stg_payments_payment_id.3744510712"} */
+[0m08:21:40.203045 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m08:21:43.064537 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.895 seconds
+[0m08:21:43.069188 [info ] [Thread-3 (]: 2 of 3 PASS not_null_stg_payments_payment_id ................................... [[32mPASS[0m in 2.95s]
+[0m08:21:43.069920 [debug] [Thread-3 (]: Finished running node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:21:43.177884 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 2.974 seconds
+[0m08:21:43.180507 [info ] [Thread-4 (]: 3 of 3 PASS unique_stg_payments_payment_id ..................................... [[32mPASS[0m in 3.06s]
+[0m08:21:43.181163 [debug] [Thread-4 (]: Finished running node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:21:43.184118 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:21:43.184586 [debug] [MainThread]: Connection 'model.elt_demo.stg_payments' was left open.
+[0m08:21:43.184883 [debug] [MainThread]: On model.elt_demo.stg_payments: Close
+[0m08:21:43.252512 [debug] [MainThread]: Connection 'test.elt_demo.not_null_stg_payments_payment_id.c19cc50075' was left open.
+[0m08:21:43.254142 [debug] [MainThread]: On test.elt_demo.not_null_stg_payments_payment_id.c19cc50075: Close
+[0m08:21:43.333745 [debug] [MainThread]: Connection 'test.elt_demo.unique_stg_payments_payment_id.3744510712' was left open.
+[0m08:21:43.335210 [debug] [MainThread]: On test.elt_demo.unique_stg_payments_payment_id.3744510712: Close
+[0m08:21:43.399216 [info ] [MainThread]: 
+[0m08:21:43.400864 [info ] [MainThread]: Finished running 2 data tests, 1 view model in 0 hours 0 minutes and 7.03 seconds (7.03s).
+[0m08:21:43.404092 [debug] [MainThread]: Command end result
+[0m08:21:43.437301 [debug] [MainThread]: Wrote artifact WritableManifest to /home/callam/elt_demo/elt_demo/target/manifest.json
+[0m08:21:43.439105 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/callam/elt_demo/elt_demo/target/semantic_manifest.json
+[0m08:21:43.445121 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/callam/elt_demo/elt_demo/target/run_results.json
+[0m08:21:43.445481 [info ] [MainThread]: 
+[0m08:21:43.445886 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:21:43.446237 [info ] [MainThread]: 
+[0m08:21:43.446617 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m08:21:43.449298 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 8.697086, "process_in_blocks": "102800", "process_kernel_time": 0.57835, "process_mem_max_rss": "162672", "process_out_blocks": "3064", "process_user_time": 3.089927}
+[0m08:21:43.449811 [debug] [MainThread]: Command `dbt build` succeeded at 08:21:43.449712 after 8.70 seconds
+[0m08:21:43.450144 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10ab8b1460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a729c200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d10a73a4b30>]}
+[0m08:21:43.450491 [debug] [MainThread]: Flushing usage events
+[0m08:21:44.470937 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:52:13.212234 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e919028e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e918c21c70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e919553bc0>]}
+
+
+============================== 08:52:13.218108 | 731d96e0-7dd5-4ae4-a9bf-8b9d44c41356 ==============================
+[0m08:52:13.218108 [info ] [MainThread]: Running with dbt=1.10.11
+[0m08:52:13.218711 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'write_json': 'True', 'target_path': 'None', 'empty': 'False', 'cache_selected_only': 'False', 'static_parser': 'True', 'version_check': 'True', 'debug': 'False', 'no_print': 'None', 'quiet': 'False', 'log_path': '/home/callam/elt_demo/logs', 'warn_error': 'None', 'introspect': 'True', 'use_colors': 'True', 'profiles_dir': '/home/callam/.dbt', 'fail_fast': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt build', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m08:52:13.763643 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '731d96e0-7dd5-4ae4-a9bf-8b9d44c41356', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e91aecdfa0>]}
+[0m08:52:13.825242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '731d96e0-7dd5-4ae4-a9bf-8b9d44c41356', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e917809d60>]}
+[0m08:52:13.826576 [info ] [MainThread]: Registered adapter: snowflake=1.10.2
+[0m08:52:13.930017 [debug] [MainThread]: checksum: 5335e1629744fab92fa7809c625edbb36f0d7063a879d6215c971798f27e66f9, vars: {}, profile: , target: , version: 1.10.11
+[0m08:52:14.139516 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:52:14.139893 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:52:14.144587 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.elt_demo.example
+[0m08:52:14.174758 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '731d96e0-7dd5-4ae4-a9bf-8b9d44c41356', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e9170e3380>]}
+[0m08:52:14.236342 [debug] [MainThread]: Wrote artifact WritableManifest to /home/callam/elt_demo/target/manifest.json
+[0m08:52:14.239054 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/callam/elt_demo/target/semantic_manifest.json
+[0m08:52:14.282026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '731d96e0-7dd5-4ae4-a9bf-8b9d44c41356', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e916b178c0>]}
+[0m08:52:14.282540 [info ] [MainThread]: Found 1 model, 2 data tests, 479 macros
+[0m08:52:14.284454 [info ] [MainThread]: 
+[0m08:52:14.284983 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m08:52:14.285441 [info ] [MainThread]: 
+[0m08:52:14.286165 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m08:52:14.287381 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DB_DEMO'
+[0m08:52:14.334928 [debug] [ThreadPool]: Using snowflake connection "list_DB_DEMO"
+[0m08:52:14.335321 [debug] [ThreadPool]: On list_DB_DEMO: show terse schemas in database DB_DEMO
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "connection_name": "list_DB_DEMO"} */
+[0m08:52:14.335594 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:52:17.371030 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 3.035 seconds
+[0m08:52:17.373968 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DB_DEMO, now list_DB_DEMO_SCHEMA_ANALYTICS)
+[0m08:52:17.387096 [debug] [ThreadPool]: Using snowflake connection "list_DB_DEMO_SCHEMA_ANALYTICS"
+[0m08:52:17.387473 [debug] [ThreadPool]: On list_DB_DEMO_SCHEMA_ANALYTICS: show objects in DB_DEMO.SCHEMA_ANALYTICS
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "connection_name": "list_DB_DEMO_SCHEMA_ANALYTICS"} */;
+[0m08:52:17.570815 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.183 seconds
+[0m08:52:17.582359 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '731d96e0-7dd5-4ae4-a9bf-8b9d44c41356', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e916f6fe00>]}
+[0m08:52:17.591326 [debug] [Thread-1 (]: Began running node model.elt_demo.stg_payments
+[0m08:52:17.591939 [info ] [Thread-1 (]: 1 of 3 START sql view model SCHEMA_ANALYTICS.stg_payments ...................... [RUN]
+[0m08:52:17.592474 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_DB_DEMO_SCHEMA_ANALYTICS, now model.elt_demo.stg_payments)
+[0m08:52:17.592841 [debug] [Thread-1 (]: Began compiling node model.elt_demo.stg_payments
+[0m08:52:17.599097 [debug] [Thread-1 (]: Writing injected SQL for node "model.elt_demo.stg_payments"
+[0m08:52:17.600587 [debug] [Thread-1 (]: Began executing node model.elt_demo.stg_payments
+[0m08:52:17.630493 [debug] [Thread-1 (]: Writing runtime sql for node "model.elt_demo.stg_payments"
+[0m08:52:17.631441 [debug] [Thread-1 (]: Using snowflake connection "model.elt_demo.stg_payments"
+[0m08:52:17.631836 [debug] [Thread-1 (]: On model.elt_demo.stg_payments: create or replace   view DB_DEMO.SCHEMA_ANALYTICS.stg_payments
+  
+  
+  
+  
+  as (
+    select 1 as payment_id,
+       1000 as amount,
+       current_date as paid_on
+  )
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "model.elt_demo.stg_payments"} */;
+[0m08:52:17.899454 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.267 seconds
+[0m08:52:17.928705 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '731d96e0-7dd5-4ae4-a9bf-8b9d44c41356', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e91aecd190>]}
+[0m08:52:17.929630 [info ] [Thread-1 (]: 1 of 3 OK created sql view model SCHEMA_ANALYTICS.stg_payments ................. [[32mSUCCESS 1[0m in 0.33s]
+[0m08:52:17.930413 [debug] [Thread-1 (]: Finished running node model.elt_demo.stg_payments
+[0m08:52:17.931595 [debug] [Thread-3 (]: Began running node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:52:17.932129 [info ] [Thread-3 (]: 2 of 3 START test not_null_stg_payments_payment_id ............................. [RUN]
+[0m08:52:17.933225 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.elt_demo.not_null_stg_payments_payment_id.c19cc50075'
+[0m08:52:17.934438 [debug] [Thread-4 (]: Began running node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:52:17.934876 [debug] [Thread-3 (]: Began compiling node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:52:17.935540 [info ] [Thread-4 (]: 3 of 3 START test unique_stg_payments_payment_id ............................... [RUN]
+[0m08:52:17.946868 [debug] [Thread-3 (]: Writing injected SQL for node "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"
+[0m08:52:17.947456 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.elt_demo.unique_stg_payments_payment_id.3744510712'
+[0m08:52:17.948059 [debug] [Thread-4 (]: Began compiling node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:52:17.953258 [debug] [Thread-4 (]: Writing injected SQL for node "test.elt_demo.unique_stg_payments_payment_id.3744510712"
+[0m08:52:17.953870 [debug] [Thread-3 (]: Began executing node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:52:17.972191 [debug] [Thread-3 (]: Writing runtime sql for node "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"
+[0m08:52:17.972940 [debug] [Thread-4 (]: Began executing node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:52:17.975017 [debug] [Thread-4 (]: Writing runtime sql for node "test.elt_demo.unique_stg_payments_payment_id.3744510712"
+[0m08:52:17.976128 [debug] [Thread-4 (]: Using snowflake connection "test.elt_demo.unique_stg_payments_payment_id.3744510712"
+[0m08:52:17.976634 [debug] [Thread-4 (]: On test.elt_demo.unique_stg_payments_payment_id.3744510712: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    payment_id as unique_field,
+    count(*) as n_records
+
+from DB_DEMO.SCHEMA_ANALYTICS.stg_payments
+where payment_id is not null
+group by payment_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "test.elt_demo.unique_stg_payments_payment_id.3744510712"} */
+[0m08:52:17.976972 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m08:52:18.010918 [debug] [Thread-3 (]: Using snowflake connection "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"
+[0m08:52:18.012692 [debug] [Thread-3 (]: On test.elt_demo.not_null_stg_payments_payment_id.c19cc50075: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select payment_id
+from DB_DEMO.SCHEMA_ANALYTICS.stg_payments
+where payment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.11", "profile_name": "elt_demo", "target_name": "dev", "node_id": "test.elt_demo.not_null_stg_payments_payment_id.c19cc50075"} */
+[0m08:52:18.013046 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m08:52:21.005274 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 3.028 seconds
+[0m08:52:21.010212 [info ] [Thread-4 (]: 3 of 3 PASS unique_stg_payments_payment_id ..................................... [[32mPASS[0m in 3.06s]
+[0m08:52:21.010973 [debug] [Thread-4 (]: Finished running node test.elt_demo.unique_stg_payments_payment_id.3744510712
+[0m08:52:21.179573 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 3.166 seconds
+[0m08:52:21.187285 [info ] [Thread-3 (]: 2 of 3 PASS not_null_stg_payments_payment_id ................................... [[32mPASS[0m in 3.25s]
+[0m08:52:21.190531 [debug] [Thread-3 (]: Finished running node test.elt_demo.not_null_stg_payments_payment_id.c19cc50075
+[0m08:52:21.196785 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:52:21.197560 [debug] [MainThread]: Connection 'model.elt_demo.stg_payments' was left open.
+[0m08:52:21.198196 [debug] [MainThread]: On model.elt_demo.stg_payments: Close
+[0m08:52:21.269335 [debug] [MainThread]: Connection 'test.elt_demo.not_null_stg_payments_payment_id.c19cc50075' was left open.
+[0m08:52:21.269928 [debug] [MainThread]: On test.elt_demo.not_null_stg_payments_payment_id.c19cc50075: Close
+[0m08:52:21.366927 [debug] [MainThread]: Connection 'test.elt_demo.unique_stg_payments_payment_id.3744510712' was left open.
+[0m08:52:21.369018 [debug] [MainThread]: On test.elt_demo.unique_stg_payments_payment_id.3744510712: Close
+[0m08:52:21.477657 [info ] [MainThread]: 
+[0m08:52:21.478759 [info ] [MainThread]: Finished running 2 data tests, 1 view model in 0 hours 0 minutes and 7.19 seconds (7.19s).
+[0m08:52:21.480696 [debug] [MainThread]: Command end result
+[0m08:52:21.497291 [debug] [MainThread]: Wrote artifact WritableManifest to /home/callam/elt_demo/target/manifest.json
+[0m08:52:21.499409 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/callam/elt_demo/target/semantic_manifest.json
+[0m08:52:21.505031 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/callam/elt_demo/target/run_results.json
+[0m08:52:21.505423 [info ] [MainThread]: 
+[0m08:52:21.505834 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:52:21.506301 [info ] [MainThread]: 
+[0m08:52:21.506780 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m08:52:21.508899 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 8.353247, "process_in_blocks": "116184", "process_kernel_time": 0.508295, "process_mem_max_rss": "156716", "process_out_blocks": "2072", "process_user_time": 2.763856}
+[0m08:52:21.509340 [debug] [MainThread]: Command `dbt build` succeeded at 08:52:21.509247 after 8.35 seconds
+[0m08:52:21.509650 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e9186bbef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e919553290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78e919550e60>]}
+[0m08:52:21.509961 [debug] [MainThread]: Flushing usage events
+[0m08:52:22.535939 [debug] [MainThread]: An error was encountered while trying to flush usage events
