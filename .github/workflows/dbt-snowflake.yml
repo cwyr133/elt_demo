@@ -1,0 +1,46 @@
+name: dbt CI (Snowflake)
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install --upgrade pip && pip install dbt-snowflake
+
+      - name: Write Snowflake private key
+        run: |
+          mkdir -p ~/.ssh
+          cat > ~/.ssh/snowflake/rsa_key.p8 <<'KEY'
+          ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+          KEY
+          chmod 600 ~/.ssh/snowflake/rsa_key.p8
+
+      - name: Configure dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml <<'YAML'
+          elt_demo:
+            target: ci
+            outputs:
+              ci:
+                type: snowflake
+                account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+                user: ${{ secrets.SNOWFLAKE_USER }}
+                role: ${{ secrets.SNOWFLAKE_ROLE }}
+                database: ${{ secrets.SNOWFLAKE_DATABASE }}
+                warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+                schema: ${{ secrets.SNOWFLAKE_SCHEMA }}
+                threads: 4
+                authenticator: snowflake
+                private_key_path: /home/runner/.ssh/snowflake_key.p8
+                private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+          YAML
+
+      - run: dbt deps
+      - run: dbt build --profiles-dir ~/.dbt
