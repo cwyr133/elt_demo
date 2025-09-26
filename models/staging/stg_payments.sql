@@ -1,4 +1,4 @@
 select 1 as payment_id,
        1000 as amount,
        current_date as paid_on,
-       'ok2' as ci_probe
+       'ok3' as ci_probe
