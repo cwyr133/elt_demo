@@ -15,9 +15,9 @@ jobs:
 
       - name: Write Snowflake private key
         run: |
-          mkdir -p ~/.ssh
+          mkdir -p ~/.ssh/snowflake
           cat > ~/.ssh/snowflake/rsa_key.p8 <<'KEY'
-          ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+          ${{ secrets.SNO.github/workflows/dbt-snowflake.ymlWFLAKE_PRIVATE_KEY }}
           KEY
           chmod 600 ~/.ssh/snowflake/rsa_key.p8
 
@@ -38,7 +38,7 @@ jobs:
                 schema: ${{ secrets.SNOWFLAKE_SCHEMA }}
                 threads: 4
                 authenticator: snowflake
-                private_key_path: /home/runner/.ssh/snowflake_key.p8
+                private_key_path: /home/runner/.ssh/snowflake/rsa_key.p8
                 private_key_passphrase: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
           YAML
 
