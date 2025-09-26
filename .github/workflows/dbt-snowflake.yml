@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh/snowflake
           cat > ~/.ssh/snowflake/rsa_key.p8 <<'KEY'
-          ${{ secrets.SNO.github/workflows/dbt-snowflake.ymlWFLAKE_PRIVATE_KEY }}
+          ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
           KEY
           chmod 600 ~/.ssh/snowflake/rsa_key.p8
 
